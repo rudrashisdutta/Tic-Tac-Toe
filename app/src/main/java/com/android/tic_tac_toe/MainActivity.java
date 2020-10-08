@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button resetGame;
 
     //Initializes or resets the UI and other components to default
+    @SuppressLint("SetTextI18n")
     private void initializeUI(){
 
         GridLayout board=(GridLayout)boardG;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         setResetGameAway(0);
-        bringResetGameBack(1000,2000);
+        bringResetGameBack(1000,1800);
         resetGame.setText("Reset Game");
 
 
@@ -80,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view){
         ImageView pos=(ImageView)view;
         int tag=Integer.parseInt(view.getTag().toString());
-        if(conditionHideButton())
-            bringResetGameBack(-1000,800);
+        if(conditionHideButton()) {
+            setResetGameAway(1000);
+            bringResetGameBack(-1000, 800);
+        }
         if(placesFilled[tag]==2&&!winner) {
             pos.setTranslationY(-3000);
             if (activePlayer == 0) {
