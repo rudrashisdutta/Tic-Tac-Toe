@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     resetGame.setText("play again");
                     bringResetGameBack(-1000,800);
                 }
-                else if(conditionDraw()){
+                else if(!winner&&conditionDraw()){
                     setWinnerBoardAway(-1000);
                     winnerBoard.setText("Match is Draw!");
                     bringWinnerBoardBack(1000,500);
