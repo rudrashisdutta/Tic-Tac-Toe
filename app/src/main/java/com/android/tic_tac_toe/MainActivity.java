@@ -23,15 +23,14 @@ public class MainActivity extends AppCompatActivity {
     private boolean winner=false;
 
 
-    private View boardG;
     private TextView winnerBoard;
     private Button resetGame;
+    private GridLayout board;
 
     //Initializes or resets the UI and other components to default
     @SuppressLint("SetTextI18n")
     private void initializeUI(){
 
-        GridLayout board=(GridLayout)boardG;
         for(int i=0;i<board.getChildCount();i++){
             ImageView place = (ImageView)board.getChildAt(i);
             place.setImageDrawable(null);
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         winnerBoard=(TextView)findViewById(R.id.winnerBoard);
-        boardG=findViewById(R.id.board);
+        board=(GridLayout)findViewById(R.id.board);
         resetGame=(Button)findViewById(R.id.resetGame);
         initializeUI();
     }
@@ -157,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void animateGridLayout(float scaleX,float scaleY,long duration){
-        GridLayout board=(GridLayout)boardG;
         board.setScaleX(0);
         board.setScaleY(0);
         board.setAlpha(0);
